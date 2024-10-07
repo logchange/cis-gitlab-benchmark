@@ -1,6 +1,6 @@
 import os
 
-from valhalla.common.logger import info, error
+from src.common.logger import info, error
 
 
 def get_valhalla_token() -> str:
