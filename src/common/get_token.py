@@ -3,7 +3,7 @@ import os
 from src.common.logger import info, error
 
 
-def get_valhalla_token() -> str:
+def get_gitlab_token() -> str:
     token = os.getenv('GITLAB_TOKEN')
 
     if token:
