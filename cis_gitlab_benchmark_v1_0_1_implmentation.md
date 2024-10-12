@@ -34,3 +34,11 @@ Implemented at:
 ```
 src/controls/code_changes/approval_required.py
 ```
+
+### 1.1.4 Ensure previous approvals are dismissed when updates are introduced to a code change proposal (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/approval_dismissed.py
+```

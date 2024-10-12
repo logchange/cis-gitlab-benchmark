@@ -1,6 +1,7 @@
 class ControlResult:
 
-    def __init__(self, passed: bool, more_info: str):
+    def __init__(self, control_name: str, passed: bool, more_info: str):
+        self.control_name = control_name
         self.passed = passed
         self.more_info = more_info
 
