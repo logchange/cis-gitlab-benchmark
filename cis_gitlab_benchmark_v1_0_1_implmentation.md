@@ -105,8 +105,20 @@ src/controls/code_changes/checks_have_passed_before_merging.py
 
 This rule also checks if `Enable merged results pipelines` and `Enable merge trains` is enabled.
 
+Implemented at:
+
 ```
 src/controls/code_changes/branches_are_up_to_date.py
 ```
 
 [see](src/controls/code_changes/branches_are_up_to_date.py)
+
+### 1.1.11 Ensure all open comments are resolved before allowing code change merging (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/open_comments_resolved_before_merge.py
+```
+
+[see](src/controls/code_changes/open_comments_resolved_before_merge.py)
