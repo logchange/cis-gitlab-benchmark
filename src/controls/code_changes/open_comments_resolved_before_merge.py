@@ -1,3 +1,4 @@
+from src.common.logger import info
 from src.controls.control import Control, ControlResult
 
 
@@ -6,6 +7,7 @@ class AllOpenCommentsAreResolvedBeforeControl(Control):
         return "1.1.11 Ensure all open comments are resolved before allowing code change merging (Manual)"
 
     def validate(self, gl_group_project, gl_project) -> ControlResult:
+        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
         all_comments = gl_project.only_allow_merge_if_all_discussions_are_resolved
 
         if all_comments:

@@ -9,6 +9,7 @@ from src.controls.code_changes.branches_are_up_to_date import BranchesAreUpToDat
 from src.controls.code_changes.checks_have_passed_before_merging import AllChecksHavePassedBeforeMergingControl
 from src.controls.code_changes.codeowners_approval import CodeOwnersApprovalRequiredControl
 from src.controls.code_changes.codeowners_file_exists import CodeOwnersFileExistsControl
+from src.controls.code_changes.commit_user_verification import CommitUserVerificationControl
 from src.controls.code_changes.open_comments_resolved_before_merge import AllOpenCommentsAreResolvedBeforeControl
 from src.controls.code_changes.stale_branches import StaleBranchesRemovedControl
 from src.export.xlsx_exporter import XlsxExporter
@@ -22,7 +23,8 @@ controls = [
     StaleBranchesRemovedControl(),
     AllChecksHavePassedBeforeMergingControl(),
     BranchesAreUpToDateControl(),
-    AllOpenCommentsAreResolvedBeforeControl()
+    AllOpenCommentsAreResolvedBeforeControl(),
+    CommitUserVerificationControl()
 ]
 
 

@@ -122,3 +122,12 @@ src/controls/code_changes/open_comments_resolved_before_merge.py
 ```
 
 [see](src/controls/code_changes/open_comments_resolved_before_merge.py)
+
+### 1.1.12 Ensure verification of signed commits for new changes before merging (Manual)
+
+GitLab uses `Merge Request` instead of `Pull Request` (wrong expression used in document)
+
+Additionally, (besides `Reject unsigned commits`), GitLab allows to check:
+- `Reject unverified users`
+- `Reject inconsistent user name`
+- `Check whether the commit author is a GitLab user`
