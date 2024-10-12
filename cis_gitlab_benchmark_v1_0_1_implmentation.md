@@ -66,4 +66,22 @@ src/controls/code_changes/codeowners_approval.py
 
 ### 1.1.8 Ensure inactive branches are periodically reviewed and removed (Manual)
 
+Implemented at:
+
+```
+src/controls/code_changes/stale_branches.py
+```
+
 ### 1.1.9 Ensure all checks have passed before merging new code (Manual)
+
+This rule also checks if `Pipelines must succeed (only_allow_merge_if_pipeline_succeeds)` is enabled.
+
+Implemented at:
+
+```
+src/controls/code_changes/checks_have_passed_before_merging.py
+```
+
+[see](src/controls/code_changes/checks_have_passed_before_merging.py)
+
+### 1.1.10 Ensure open Git branches are up to date before they can be merged into code base (Manual)
