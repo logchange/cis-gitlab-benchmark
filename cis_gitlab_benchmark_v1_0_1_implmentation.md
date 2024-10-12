@@ -42,3 +42,16 @@ Implemented at:
 ```
 src/controls/code_changes/approval_dismissed.py
 ```
+
+### 1.1.5 Ensure there are restrictions on who can dismiss code change reviews (Manual)
+
+I don't understand this rule or what should be checked to perform audit. Is it enough that
+main branch is protected, noone can push to it and Developers and Maintainers can merge?
+
+### 1.1.6 Ensure code owners are set for extra sensitive code or configuration (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/codeowners_approvals.py
+```

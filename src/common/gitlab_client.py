@@ -1,4 +1,5 @@
 import os
+from numbers import Number
 
 import gitlab
 
@@ -23,3 +24,11 @@ def get_gitlab_client():
 
     gl = gitlab.Gitlab(gitlab_url, oauth_token=token)
     return gl
+
+
+def file_exists(gl_project, file_name: str) -> Number | None:
+    try:
+        id = [d['id'] for d in gl_project.repository_tree() if d['name'] == file_name][0]
+        return True
+    except IndexError:
+        return False

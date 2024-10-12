@@ -4,11 +4,13 @@ from src.common.get_token import get_gitlab_token
 from src.common.logger import init_logger
 from src.controls.code_changes.approval_dismissed import ApprovalDismissedControl
 from src.controls.code_changes.approval_required import ApprovalRequiredControl
+from src.controls.code_changes.codeowners_approvals import CodeOwnersApprovalControl
 from src.projects import GitLabProjects
 
 controls = [
     ApprovalRequiredControl(),
-    ApprovalDismissedControl()
+    ApprovalDismissedControl(),
+    CodeOwnersApprovalControl()
 ]
 
 
