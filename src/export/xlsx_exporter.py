@@ -29,7 +29,7 @@ def _add_info_header(ws):
     cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
     cell.font = Font(bold=True, size=12)
     cell.fill = PatternFill(start_color="D9EAD3", end_color="D9EAD3", fill_type="solid")
-    ws.row_dimensions[1].height = 90  # Slightly increase row height
+    ws.row_dimensions[1].height = 100  # Slightly increase row height
     ws.column_dimensions['A'].width = 40
 
 

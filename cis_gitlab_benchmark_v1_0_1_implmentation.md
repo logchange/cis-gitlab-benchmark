@@ -35,6 +35,8 @@ Implemented at:
 src/controls/code_changes/approval_required.py
 ```
 
+[see](src/controls/code_changes/approval_required.py)
+
 ### 1.1.4 Ensure previous approvals are dismissed when updates are introduced to a code change proposal (Manual)
 
 Implemented at:
@@ -42,6 +44,9 @@ Implemented at:
 ```
 src/controls/code_changes/approval_dismissed.py
 ```
+
+[see](src/controls/code_changes/approval_dismissed.py)
+
 
 ### 1.1.5 Ensure there are restrictions on who can dismiss code change reviews (Manual)
 
@@ -56,6 +61,9 @@ Implemented at:
 src/controls/code_changes/codeowners_file_exists.py
 ```
 
+[see](src/controls/code_changes/codeowners_file_exists.py)
+
+
 ### 1.1.7 Ensure code owner's review is required when a change affects owned code (Manual)
 
 Implemented at:
@@ -63,6 +71,9 @@ Implemented at:
 ```
 src/controls/code_changes/codeowners_approval.py
 ```
+
+[see](src/controls/code_changes/codeowners_approval.py)
+
 
 ### 1.1.8 Ensure inactive branches are periodically reviewed and removed (Manual)
 
@@ -72,9 +83,15 @@ Implemented at:
 src/controls/code_changes/stale_branches.py
 ```
 
+[see](src/controls/code_changes/stale_branches.py)
+
+
 ### 1.1.9 Ensure all checks have passed before merging new code (Manual)
 
 This rule also checks if `Pipelines must succeed (only_allow_merge_if_pipeline_succeeds)` is enabled.
+
+What about `allow_merge_on_skipped_pipeline`? In some cases some BOTs use skipped pipelines to
+perform some actions that would create recursive pipelines, and that's why skipped pipelines are useful.
 
 Implemented at:
 
@@ -85,3 +102,11 @@ src/controls/code_changes/checks_have_passed_before_merging.py
 [see](src/controls/code_changes/checks_have_passed_before_merging.py)
 
 ### 1.1.10 Ensure open Git branches are up to date before they can be merged into code base (Manual)
+
+This rule also checks if `Enable merged results pipelines` and `Enable merge trains` is enabled.
+
+```
+src/controls/code_changes/branches_are_up_to_date.py
+```
+
+[see](src/controls/code_changes/branches_are_up_to_date.py)

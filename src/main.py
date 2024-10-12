@@ -5,6 +5,7 @@ from src.common.get_token import get_gitlab_token
 from src.common.logger import init_logger
 from src.controls.code_changes.approval_dismissed import ApprovalDismissedControl
 from src.controls.code_changes.approval_required import ApprovalRequiredControl
+from src.controls.code_changes.branches_are_up_to_date import BranchesAreUpToDateControl
 from src.controls.code_changes.checks_have_passed_before_merging import AllChecksHavePassedBeforeMergingControl
 from src.controls.code_changes.codeowners_approval import CodeOwnersApprovalRequiredControl
 from src.controls.code_changes.codeowners_file_exists import CodeOwnersFileExistsControl
@@ -18,7 +19,8 @@ controls = [
     CodeOwnersFileExistsControl(),
     CodeOwnersApprovalRequiredControl(),
     StaleBranchesRemovedControl(),
-    AllChecksHavePassedBeforeMergingControl()
+    AllChecksHavePassedBeforeMergingControl(),
+    BranchesAreUpToDateControl()
 ]
 
 
