@@ -1,23 +1,31 @@
 import argparse
+import pprint
 
 from src.common.get_token import get_gitlab_token
 from src.common.logger import init_logger
 from src.controls.code_changes.approval_dismissed import ApprovalDismissedControl
 from src.controls.code_changes.approval_required import ApprovalRequiredControl
-from src.controls.code_changes.codeowners_approvals import CodeOwnersApprovalControl
+from src.controls.code_changes.codeowners_approval import CodeOwnersApprovalRequiredControl
+from src.controls.code_changes.codeowners_file_exists import CodeOwnersFileExistsControl
+from src.export.xlsx_exporter import XlsxExporter
 from src.projects import GitLabProjects
 
 controls = [
     ApprovalRequiredControl(),
     ApprovalDismissedControl(),
-    CodeOwnersApprovalControl()
+    CodeOwnersFileExistsControl(),
+    CodeOwnersApprovalRequiredControl()
 ]
 
 
 def check_controls(gitlab_group_project, gl_project):
+    controls_result = []
+
     for control in controls:
         result = control.validate(gitlab_group_project, gl_project)
-        # TODO
+        controls_result.append(result)
+
+    return {"name": gitlab_group_project.name, "url": gitlab_group_project.path_with_namespace, "controls_result": controls_result}
 
 
 def start(group_name: str):
@@ -30,8 +38,16 @@ def start(group_name: str):
 
     projects_list = gl_projects.get()
 
+    project_results = []
+
     for project in projects_list:
-        check_controls(project, gl_projects.get_project(project.id))
+        result = check_controls(project, gl_projects.get_project(project.id))
+        project_results.append(result)
+
+    pprint.pp(project_results)
+
+    exporter = XlsxExporter()
+    exporter.export(project_results, group_name)
 
 
 def main():

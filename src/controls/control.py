@@ -5,6 +5,12 @@ class ControlResult:
         self.passed = passed
         self.more_info = more_info
 
+    def to_dict(self):
+        return vars(self)
+
+    def __repr__(self):
+        return str(self.to_dict())
+
 
 class Control:
 

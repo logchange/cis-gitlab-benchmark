@@ -1,11 +1,10 @@
-from src.common.gitlab_client import file_exists
 from src.controls.control import Control, ControlResult
 
 
-class CodeOwnersApprovalControl(Control):
+class CodeOwnersApprovalRequiredControl(Control):
 
     def get_name(self):
-        return "1.1.6 Ensure code owners are set for extra sensitive code or configuration (Manual)"
+        return "1.1.7 Ensure code owner's review is required when a change affects owned code (Manual)"
 
     def validate(self, gl_group_project, gl_project) -> ControlResult:
         approval_rules = gl_project.approvalrules.list(lazy=False)
@@ -19,15 +18,12 @@ class CodeOwnersApprovalControl(Control):
             for protected_branch_by_rule in rule.protected_branches:
                 if protected_branch_by_rule.get('name') in protected_branches_result.keys():
                     branch_name = protected_branch_by_rule.get('name')
-                    if protected_branch_by_rule.get('code_owner_approval_required') and file_exists(gl_project, 'CODEOWNERS'):
+                    if protected_branch_by_rule.get('code_owner_approval_required'):
                         passed = True
                         more_info = ""
-                    elif protected_branch_by_rule.get('code_owner_approval_required'):
-                        passed = False
-                        more_info = f"For branch {branch_name} code owners approval required but CODEOWNERS file does not exists"
                     else:
                         passed = False
-                        more_info = f"For branch {branch_name} no code owners approval required nor CODEOWNERS file exists"
+                        more_info = f"For branch {branch_name} no code owners approval required"
                     protected_branches_result[branch_name] = {'passed': passed, 'more_info': more_info}
 
         final_passed = True
