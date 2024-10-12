@@ -53,5 +53,17 @@ main branch is protected, noone can push to it and Developers and Maintainers ca
 Implemented at:
 
 ```
-src/controls/code_changes/codeowners_approvals.py
+src/controls/code_changes/codeowners_file_exists.py
 ```
+
+### 1.1.7 Ensure code owner's review is required when a change affects owned code (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/codeowners_approval.py
+```
+
+### 1.1.8 Ensure inactive branches are periodically reviewed and removed (Manual)
+
+### 1.1.9 Ensure all checks have passed before merging new code (Manual)

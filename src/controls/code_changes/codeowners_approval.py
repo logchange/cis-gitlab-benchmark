@@ -1,3 +1,4 @@
+from src.common.logger import info
 from src.controls.control import Control, ControlResult
 
 
@@ -7,6 +8,7 @@ class CodeOwnersApprovalRequiredControl(Control):
         return "1.1.7 Ensure code owner's review is required when a change affects owned code (Manual)"
 
     def validate(self, gl_group_project, gl_project) -> ControlResult:
+        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
         approval_rules = gl_project.approvalrules.list(lazy=False)
 
         protected_branches_result = {}

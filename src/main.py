@@ -7,6 +7,7 @@ from src.controls.code_changes.approval_dismissed import ApprovalDismissedContro
 from src.controls.code_changes.approval_required import ApprovalRequiredControl
 from src.controls.code_changes.codeowners_approval import CodeOwnersApprovalRequiredControl
 from src.controls.code_changes.codeowners_file_exists import CodeOwnersFileExistsControl
+from src.controls.code_changes.stale_branches import StaleBranchesRemovedControl
 from src.export.xlsx_exporter import XlsxExporter
 from src.projects import GitLabProjects
 
@@ -14,7 +15,8 @@ controls = [
     ApprovalRequiredControl(),
     ApprovalDismissedControl(),
     CodeOwnersFileExistsControl(),
-    CodeOwnersApprovalRequiredControl()
+    CodeOwnersApprovalRequiredControl(),
+    StaleBranchesRemovedControl()
 ]
 
 

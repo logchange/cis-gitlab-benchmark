@@ -1,3 +1,4 @@
+from src.common.logger import info
 from src.controls.control import Control, ControlResult
 
 
@@ -7,6 +8,7 @@ class ApprovalDismissedControl(Control):
         return "1.1.4 Ensure previous approvals are dismissed when updates are introduced to a code change proposal (Manual)"
 
     def validate(self, gl_group_project, gl_project) -> ControlResult:
+        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
         approvals = gl_project.approvals.get()
 
         if approvals.reset_approvals_on_push:

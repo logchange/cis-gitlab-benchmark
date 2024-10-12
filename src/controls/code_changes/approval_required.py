@@ -1,3 +1,4 @@
+from src.common.logger import info
 from src.controls.control import Control, ControlResult
 
 REQUIRED_APPROVALS = 2
@@ -9,6 +10,7 @@ class ApprovalRequiredControl(Control):
         return "1.1.3 Ensure any change to code receives approval of two strongly authenticated users (Automated)"
 
     def validate(self, gl_group_project, gl_project) -> ControlResult:
+        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
         approval_rules = gl_project.approvalrules.list(lazy=False)
 
         protected_branches_result = {}
