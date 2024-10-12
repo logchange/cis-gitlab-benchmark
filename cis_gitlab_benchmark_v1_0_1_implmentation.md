@@ -131,3 +131,24 @@ Additionally, (besides `Reject unsigned commits`), GitLab allows to check:
 - `Reject unverified users`
 - `Reject inconsistent user name`
 - `Check whether the commit author is a GitLab user`
+
+Implemented at:
+
+```
+src/controls/code_changes/commit_user_verification.py
+```
+
+[see](src/controls/code_changes/commit_user_verification.py) 
+
+### 1.1.13 Ensure linear history is required (Manual)
+
+This rule should also check if `Squash commits when merging` is `Encourage` or `Require` to keep
+main branch clean.
+
+Implemented at:
+
+```
+src/controls/code_changes/linear_history.py
+```
+
+[see](src/controls/code_changes/linear_history.py)
