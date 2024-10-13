@@ -278,3 +278,18 @@ src/controls/repository_management/repository_forks.py
 
 [see](src/controls/repository_management/repository_forks.py)
 
+### 1.2.6 Ensure all code projects are tracked for changes in visibility status (Manual)
+
+Only available from Admin GUI.
+
+### 1.2.7 Ensure inactive repositories are reviewed and archived periodically (Manual)
+
+Implemented as suggest in docs 180 days (6 months), maybe allow to configure in future.
+
+Implemented at:
+
+```
+src/controls/repository_management/inactive_repositories.py
+```
+
+[see](src/controls/repository_management/inactive_repositories.py)

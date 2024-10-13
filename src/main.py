@@ -17,6 +17,7 @@ from src.controls.code_changes.linear_history import LinearHistoryControl
 from src.controls.code_changes.open_comments_resolved_before_merge import AllOpenCommentsAreResolvedBeforeControl
 from src.controls.code_changes.pushing_or_merging_restriction import PushingOrMergingRestrictionControl
 from src.controls.code_changes.stale_branches import StaleBranchesRemovedControl
+from src.controls.repository_management.inactive_repositories import RepositoryInactivityControl
 from src.controls.repository_management.issue_deletion_limited import IssueDeletionLimitedControl
 from src.controls.repository_management.repository_deletion_limited import RepositoryDeletionLimitedControl
 from src.controls.repository_management.repository_forks import RepositoryForksControl
@@ -42,7 +43,8 @@ controls = [
     SecurityFileExistsControl(),
     RepositoryDeletionLimitedControl(),
     IssueDeletionLimitedControl(),
-    RepositoryForksControl()
+    RepositoryForksControl(),
+    RepositoryInactivityControl()
 ]
 
 
