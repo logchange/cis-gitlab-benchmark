@@ -20,3 +20,8 @@ Running:
 ```bash
 python __main__.py <gitlab_group_name>
 ```
+
+
+#### Output
+
+![example-output.png](example-output.png)

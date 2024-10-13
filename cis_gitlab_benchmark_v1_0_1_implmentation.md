@@ -293,3 +293,7 @@ src/controls/repository_management/inactive_repositories.py
 ```
 
 [see](src/controls/repository_management/inactive_repositories.py)
+
+## 1.3 Contribution Access
+
+Only available from Admin GUI.
