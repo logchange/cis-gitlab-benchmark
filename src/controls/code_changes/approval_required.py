@@ -24,8 +24,7 @@ class ApprovalRequiredControl(Control):
             for protected_branch_by_rule in rule.protected_branches:
                 if protected_branch_by_rule.get('name') in protected_branches_result.keys():
                     branch_name = protected_branch_by_rule.get('name')
-                    if rule.approvals_required >= REQUIRED_APPROVALS and len(
-                            protected_branch_by_rule.get('push_access_levels')) == 0:
+                    if rule.approvals_required >= REQUIRED_APPROVALS and len(protected_branch_by_rule.get('push_access_levels')) == 1 and protected_branch_by_rule.get('push_access_levels')[0].get('access_level') == 0:
                         passed = True
                         more_info = f"Required approvals: {rule.approvals_required}, and push to {branch_name} are disabled"
                     elif rule.approvals_required >= REQUIRED_APPROVALS:

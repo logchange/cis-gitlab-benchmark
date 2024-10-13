@@ -1,3 +1,8 @@
+# Short description and review of CIS GitLab Benchmark v1.0.1 - 04-19-2024
+
+
+## 1.1 Code Changes
+
 ### 1.1.1 Ensure any changes to code are tracked in a version control platform (Manual)
 
 Use GitLab Runner and metrics to monitor deployed application for not commited code.
@@ -211,3 +216,37 @@ src/controls/code_changes/default_branch_protected.py
 ```
 
 [see](src/controls/code_changes/default_branch_protected.py)
+
+## 1.2 Repository Management
+
+### 1.2.1 Ensure all public repositories contain a SECURITY.md file (Manual)
+
+Why this is only recommended for public repositories?
+
+Implemented at:
+
+```
+src/controls/repository_management/security_file_available.py
+```
+
+[see](src/controls/repository_management/security_file_available.py)
+
+### 1.2.2 Ensure repository creation is limited to specific members (Manual)
+
+Only available from Admin GUI.
+
+Creating repositories inside group requires Maintainer or Developer role?
+
+Why this control audit and remediation are about `Sign-up restrictions` ?
+
+### 1.2.3 Ensure repository deletion is limited to specific users (Manual)
+
+Number of owners and maintainers is below 20 (TODO configure in future)
+
+Implemented at:
+
+```
+src/controls/repository_management/repository_deletion_limited.py
+```
+
+[see](src/controls/repository_management/repository_deletion_limited.py)
