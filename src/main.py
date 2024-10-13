@@ -12,6 +12,7 @@ from src.controls.code_changes.codeowners_file_exists import CodeOwnersFileExist
 from src.controls.code_changes.commit_user_verification import CommitUserVerificationControl
 from src.controls.code_changes.linear_history import LinearHistoryControl
 from src.controls.code_changes.open_comments_resolved_before_merge import AllOpenCommentsAreResolvedBeforeControl
+from src.controls.code_changes.pushing_or_merging_restriction import PushingOrMergingRestrictionControl
 from src.controls.code_changes.stale_branches import StaleBranchesRemovedControl
 from src.export.xlsx_exporter import XlsxExporter
 from src.projects import GitLabProjects
@@ -26,7 +27,8 @@ controls = [
     BranchesAreUpToDateControl(),
     AllOpenCommentsAreResolvedBeforeControl(),
     CommitUserVerificationControl(),
-    LinearHistoryControl()
+    LinearHistoryControl(),
+    PushingOrMergingRestrictionControl()
 ]
 
 

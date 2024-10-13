@@ -152,3 +152,23 @@ src/controls/code_changes/linear_history.py
 ```
 
 [see](src/controls/code_changes/linear_history.py)
+
+### 1.1.14 Ensure branch protection rules are enforced for administrators (Manual)
+
+Only available from Admin GUI.
+
+### 1.1.15 Ensure pushing or merging of new code is restricted to specific individuals or teams (Manual)
+
+This rule in this implementation checks following conditions: 
+- Pushing should be set to `No One`
+- Merging should be set to `Maintainers and Developers`
+
+Maybe in future this tool will allow to define custom values for these rules to adjust to various companies polices
+
+Implemented at:
+
+```
+src/controls/code_changes/pushing_or_merging_restriction.py
+```
+
+[see](src/controls/code_changes/pushing_or_merging_restriction.py)
