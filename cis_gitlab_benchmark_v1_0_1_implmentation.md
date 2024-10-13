@@ -172,3 +172,13 @@ src/controls/code_changes/pushing_or_merging_restriction.py
 ```
 
 [see](src/controls/code_changes/pushing_or_merging_restriction.py)
+
+### 1.1.16 Ensure force push code to branches is denied (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/force_push_denied.py
+```
+
+[see](src/controls/code_changes/force_push_denied.py)

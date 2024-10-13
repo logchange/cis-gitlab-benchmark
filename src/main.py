@@ -10,6 +10,7 @@ from src.controls.code_changes.checks_have_passed_before_merging import AllCheck
 from src.controls.code_changes.codeowners_approval import CodeOwnersApprovalRequiredControl
 from src.controls.code_changes.codeowners_file_exists import CodeOwnersFileExistsControl
 from src.controls.code_changes.commit_user_verification import CommitUserVerificationControl
+from src.controls.code_changes.force_push_denied import ForcePushDeniedControl
 from src.controls.code_changes.linear_history import LinearHistoryControl
 from src.controls.code_changes.open_comments_resolved_before_merge import AllOpenCommentsAreResolvedBeforeControl
 from src.controls.code_changes.pushing_or_merging_restriction import PushingOrMergingRestrictionControl
@@ -28,7 +29,8 @@ controls = [
     AllOpenCommentsAreResolvedBeforeControl(),
     CommitUserVerificationControl(),
     LinearHistoryControl(),
-    PushingOrMergingRestrictionControl()
+    PushingOrMergingRestrictionControl(),
+    ForcePushDeniedControl()
 ]
 
 
