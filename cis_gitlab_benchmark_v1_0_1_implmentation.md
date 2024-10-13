@@ -241,7 +241,11 @@ Why this control audit and remediation are about `Sign-up restrictions` ?
 
 ### 1.2.3 Ensure repository deletion is limited to specific users (Manual)
 
-Number of owners and maintainers is below 20 (TODO configure in future)
+Number of owners and maintainers is below 10 (TODO configure in future)
+
+GitLab allows to change ability to delete project only to administrators.
+
+https://docs.gitlab.com/ee/administration/settings/visibility_and_access_controls.html#restrict-project-deletion-to-administrators
 
 Implemented at:
 

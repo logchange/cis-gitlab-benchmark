@@ -3,9 +3,9 @@ from src.controls.control import Control, ControlResult
 
 
 class RepositoryDeletionLimitedControl(Control):
-    DELETION_ACCESS_LEVEL = [40, 50, 60]
+    DELETION_ACCESS_LEVEL = [50, 60]
 
-    MAX_NUMBER_OF_ALLOWED_TO_DELETE_REPO = 20
+    MAX_NUMBER_OF_ALLOWED_TO_DELETE_REPO = 10
 
     def get_name(self):
         return "1.2.3 Ensure repository deletion is limited to specific users (Manual)"
@@ -16,7 +16,7 @@ class RepositoryDeletionLimitedControl(Control):
         members = gl_project.members_all.list(all=True)
 
         counter = 0
-        users_allowed_to_delete = "Exceeded number of 20 users\nMembers allowed to delete repository:\n"
+        users_allowed_to_delete = f"Exceeded number of {self.MAX_NUMBER_OF_ALLOWED_TO_DELETE_REPO} users\nMembers allowed to delete repository:\n"
 
         for member in members:
             if member.access_level in self.DELETION_ACCESS_LEVEL:
