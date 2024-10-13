@@ -193,3 +193,21 @@ src/controls/code_changes/branch_deleteion_denied.py
 ```
 
 [see](src/controls/code_changes/branch_deleteion_denied.py)
+
+### 1.1.18 Ensure any merging of code is automatically scanned for risks (Manual)
+
+Not implemented.
+
+### 1.1.19 Ensure any changes to branch protection rules are audited (Manual)
+
+Only available from Admin GUI.
+
+### 1.1.20 Ensure branch protection is enforced on the default branch (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/default_branch_protected.py
+```
+
+[see](src/controls/code_changes/default_branch_protected.py)
