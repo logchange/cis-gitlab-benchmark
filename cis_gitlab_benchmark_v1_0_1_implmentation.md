@@ -254,3 +254,27 @@ src/controls/repository_management/repository_deletion_limited.py
 ```
 
 [see](src/controls/repository_management/repository_deletion_limited.py)
+
+### 1.2.4 Ensure issue deletion is limited to specific users (Manual)
+
+Implemented at:
+
+```
+src/controls/repository_management/issue_deletion_limited.py
+```
+
+[see](src/controls/repository_management/issue_deletion_limited.py)
+
+
+### 1.2.5 Ensure all copies (forks) of code are tracked and accounted for (Manual)
+
+This implementation allows no forks.
+
+Implemented at:
+
+```
+src/controls/repository_management/repository_forks.py
+```
+
+[see](src/controls/repository_management/repository_forks.py)
+
