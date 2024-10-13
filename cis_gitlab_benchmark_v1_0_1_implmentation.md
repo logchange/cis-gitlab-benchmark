@@ -182,3 +182,14 @@ src/controls/code_changes/force_push_denied.py
 ```
 
 [see](src/controls/code_changes/force_push_denied.py)
+
+
+### 1.1.17 Ensure branch deletions are denied (Manual)
+
+Implemented at:
+
+```
+src/controls/code_changes/branch_deleteion_denied.py
+```
+
+[see](src/controls/code_changes/branch_deleteion_denied.py)
