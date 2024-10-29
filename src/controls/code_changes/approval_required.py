@@ -1,16 +1,18 @@
-from src.common.logger import info
 from src.controls.control import Control, ControlResult
-
-REQUIRED_APPROVALS = 2
 
 
 class ApprovalRequiredControl(Control):
 
-    def get_name(self):
-        return "1.1.3 Ensure any change to code receives approval of two strongly authenticated users (Automated)"
+    def __init__(self, config: dict):
+        control_dict = config.get('gitlab').get('code_changes').get('approval_required')
+        enabled = control_dict.get('enabled')
+        super().__init__(enabled)
+        self.required_approvals = control_dict.get('required_approvals')
 
-    def validate(self, gl_group_project, gl_project) -> ControlResult:
-        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
+    def get_name(self):
+        return f"1.1.3 Ensure any change to code receives approval of {self.required_approvals} strongly authenticated users (Automated)"
+
+    def validate_specific(self, gl_group_project, gl_project) -> ControlResult | None:
         approval_rules = gl_project.approvalrules.list(lazy=False)
 
         protected_branches_result = {}
@@ -24,10 +26,12 @@ class ApprovalRequiredControl(Control):
             for protected_branch_by_rule in rule.protected_branches:
                 if protected_branch_by_rule.get('name') in protected_branches_result.keys():
                     branch_name = protected_branch_by_rule.get('name')
-                    if rule.approvals_required >= REQUIRED_APPROVALS and len(protected_branch_by_rule.get('push_access_levels')) == 1 and protected_branch_by_rule.get('push_access_levels')[0].get('access_level') == 0:
+                    if rule.approvals_required >= self.required_approvals and len(
+                            protected_branch_by_rule.get('push_access_levels')) == 1 and \
+                            protected_branch_by_rule.get('push_access_levels')[0].get('access_level') == 0:
                         passed = True
                         more_info = f"Required approvals: {rule.approvals_required}, and push to {branch_name} are disabled"
-                    elif rule.approvals_required >= REQUIRED_APPROVALS:
+                    elif rule.approvals_required >= self.required_approvals:
                         passed = False
                         more_info = f"Required approvals: {rule.approvals_required}, BUT push to {branch_name} are enabled to {protected_branch_by_rule.get('push_access_levels')[0].get('access_level_description')}"
                     else:

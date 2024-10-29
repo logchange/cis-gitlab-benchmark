@@ -197,7 +197,7 @@ Implemented at:
 src/controls/code_changes/branch_deleteion_denied.py
 ```
 
-[see](src/controls/code_changes/branch_deleteion_denied.py)
+[see](src/controls/code_changes/branch_deletion_denied.py)
 
 ### 1.1.18 Ensure any merging of code is automatically scanned for risks (Manual)
 

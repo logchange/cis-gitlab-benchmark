@@ -3,14 +3,17 @@ from src.controls.control import Control, ControlResult
 
 
 class RepositoryForksControl(Control):
-    MAX_NUMBER_OF_FORKS = 0
+
+    def __init__(self, config: dict):
+        control_dict = config.get('gitlab').get('repository_management').get('repository_forks')
+        enabled = control_dict.get('enabled')
+        super().__init__(enabled)
+        self.max_number_of_forks = control_dict.get("max_number_of_forks")
 
     def get_name(self):
         return "1.2.5 Ensure all copies (forks) of code are tracked and accounted for (Manual)"
 
-    def validate(self, gl_group_project, gl_project) -> ControlResult:
-        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
-
+    def validate_specific(self, gl_group_project, gl_project) -> ControlResult:
         forks_count = gl_project.forks_count
 
         if forks_count == 0:

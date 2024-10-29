@@ -1,0 +1,70 @@
+gitlab:
+  code_changes:
+    approval_dismissed:
+      enabled: True
+    approval_required:
+      enabled: True
+      required_approvals: 2
+    branch_deletion_denied:
+      enabled: True
+    branches_are_up_to_date:
+      enabled: True
+      # https://docs.gitlab.com/ee/api/projects.html#get-a-single-project
+      # Set the project’s merge method. Can be merge (merge commit), rebase_merge (merge commit with semi-linear history), or ff (fast-forward merge).
+      # https://docs.gitlab.com/ee/user/project/merge_requests/methods/index.html
+      allowed_merge_method:
+        - rebase_merge
+        - ff
+    checks_have_passed_before_merging:
+      enabled: True
+    codeowners_approval:
+      enabled: True
+    codeowners_file_exists:
+      enabled: True
+    commit_user_verification:
+      enabled: True
+      reject_unsigned_commits: True # Reject unsigned commits (original CIS GitLab v1.0.1)
+      commit_committer_check: True # Reject unverified users
+      commit_committer_name_check: True  # Reject inconsistent user name
+      member_check: True  # Check whether the commit author is a GitLab user
+    default_branch_protected:
+      enabled: True
+    force_push_denied:
+      enabled: True
+    linear_history:
+      enabled: True
+      allowed_merge_method:
+        - ff
+      allowed_squash_options:
+        - default_on
+        - always
+    open_comments_resolved_before_merge:
+      enabled: True
+    pushing_or_merging_restriction:
+      enabled: True
+      # https://docs.gitlab.com/ee/api/access_requests.html
+      # 30 - Developers + Maintainers, 40 - Maintainers
+      allowed_merge_access_levels:
+        - 30
+        - 40
+      # 0 - No one
+      allowed_push_access_levels:
+        - 0
+    stale_branches:
+      enabled: True
+      stale_days: 90
+  repository_management:
+    inactive_repositories:
+      enabled: True
+      max_number_of_inactive_days: 180
+    issue_deletion_limited:
+      enabled: True
+      max_number_of_users_allowed_to_delete_issue: 10
+    repository_deletion_limited:
+      enabled: True
+      max_number_of_users_allowed_to_delete_repo: 10
+    repository_forks:
+      enabled: True
+      max_number_of_forks: 0
+    security_file_available:
+      enabled: True

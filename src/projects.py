@@ -10,8 +10,8 @@ class GitLabProjects:
         group_object = self.gl.groups.get(self.group_name)
         group_projects = group_object.projects.list(as_list=False,
                                                     include_subgroups=True,
-                                                    # get_all=True,
-                                                    per_page=2, # only for test purposes
+                                                    get_all=True,
+                                                    # per_page=2, # only for test purposes
                                                     archived=False,
                                                     with_shared=False,
                                                     simple=False,)

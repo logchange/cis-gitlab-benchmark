@@ -2,6 +2,7 @@ import os
 from numbers import Number
 
 import gitlab
+from gitlab import GitlabHttpError
 
 from src.common.get_token import get_gitlab_token
 from src.common.logger import info
@@ -31,4 +32,7 @@ def file_exists(gl_project, file_name: str) -> Number | None:
         id = [d['id'] for d in gl_project.repository_tree() if d['name'] == file_name][0]
         return True
     except IndexError:
+        return False
+    except Exception as e:
+        info(str(e))
         return False

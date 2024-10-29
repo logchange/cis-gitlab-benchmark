@@ -7,18 +7,22 @@ from src.controls.control import Control, ControlResult
 
 
 class StaleBranchesRemovedControl(Control):
-    STALE_DAYS = 90
+
+    def __init__(self, config: dict):
+        control_dict = config.get('gitlab').get('code_changes').get('stale_branches')
+        enabled = control_dict.get('enabled')
+        super().__init__(enabled)
+        self.stale_days = control_dict.get("stale_days")
 
     def get_name(self):
         return "1.1.8 Ensure inactive branches are periodically reviewed and removed (Manual)"
 
-    def validate(self, gl_group_project, gl_project) -> ControlResult:
-        info(f"Project name: {gl_project.name} - Performing check {self.get_name()}")
+    def validate_specific(self, gl_group_project, gl_project) -> ControlResult:
         branches = gl_project.branches.list(all=True)
 
         merged_count = 0
         stale_count = 0
-        stale_threshold = datetime.now(timezone.utc) - timedelta(days=self.STALE_DAYS)
+        stale_threshold = datetime.now(timezone.utc) - timedelta(days=self.stale_days)
 
         for branch in branches:
             if branch.merged:
