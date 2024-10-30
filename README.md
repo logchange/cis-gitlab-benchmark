@@ -18,9 +18,10 @@ GITLAB_URL=
 Running:
 
 ```bash
-python __main__.py <gitlab_group_name>
+python __main__.py <gitlab_group_name> <config_file.yml>
 ```
 
+You can use `default-config.yml` or adjust it to your needs.
 
 #### Output
 
