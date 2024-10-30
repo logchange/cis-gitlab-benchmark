@@ -15,6 +15,9 @@ class ApprovalRequiredControl(Control):
     def validate_specific(self, gl_group_project, gl_project) -> ControlResult | None:
         approval_rules = gl_project.approvalrules.list(lazy=False)
 
+        if len(approval_rules) == 0:
+            return ControlResult(self.get_name(), False, "Project does not have any approval rule!")
+
         protected_branches_result = {}
 
         for protected_branch in gl_project.protectedbranches.list():
