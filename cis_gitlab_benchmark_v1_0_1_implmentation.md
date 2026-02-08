@@ -6,7 +6,7 @@
 ### 1.1.1 Ensure any changes to code are tracked in a version control platform (Manual)
 
 Use GitLab Runner and metrics to monitor deployed application for not committed code.
-Tools like [hofund](https://github.com/logchange/hofund) or  expose metrics (f.e for prometheus) with git information about
+Tools like [hofund](https://github.com/logchange/hofund) or  expose metrics (f.e. for prometheus) with git information about
 dirtiness of repository.
 
 Example:
@@ -26,7 +26,7 @@ See also [merge request commit templates](https://docs.gitlab.com/ee/user/projec
 interesting feature to implement this control and create company-wide standard for commit messages.
 
 Next element, that implements this control is [commit message template for push rules](https://docs.gitlab.com/ee/user/project/repository/push_rules.html#validate-commit-messages) which 
-requires from commit author to meet rules (f.e commit message must contain expression like `issue#1234`)
+requires from commit author to meet rules (f.e. commit message must contain expression like `issue#1234`)
 
 Using tools like [logchange](https://github.com/logchange/logchange?tab=readme-ov-file#yaml-format) to create
 standard for creating `CHANGELOG.md` encourage developers to link associated tasks with given change. GitLab also 
