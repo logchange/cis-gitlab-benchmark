@@ -5,7 +5,7 @@
 
 ### 1.1.1 Ensure any changes to code are tracked in a version control platform (Manual)
 
-Use GitLab Runner and metrics to monitor deployed application for not commited code.
+Use GitLab Runner and metrics to monitor deployed application for not committed code.
 Tools like [hofund](https://github.com/logchange/hofund) or  expose metrics (f.e for prometheus) with git information about
 dirtiness of repository.
 
