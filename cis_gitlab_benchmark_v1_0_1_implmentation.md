@@ -194,7 +194,7 @@ src/controls/code_changes/force_push_denied.py
 Implemented at:
 
 ```
-src/controls/code_changes/branch_deleteion_denied.py
+src/controls/code_changes/branch_deletion_denied.py
 ```
 
 [see](src/controls/code_changes/branch_deletion_denied.py)
