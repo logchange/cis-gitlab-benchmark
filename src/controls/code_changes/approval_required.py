@@ -24,7 +24,7 @@ class ApprovalRequiredControl(Control):
             protected_branches_result[protected_branch.name] = {'passed': False, 'more_info': ""}
 
         # now, we check if there is a rule with value set to at least 2, but it can be 2 rules with different approval users
-        # that requires for one approve, what also gives 2
+        # that requires for one approve, which also gives 2
         for rule in approval_rules:
             for protected_branch_by_rule in rule.protected_branches:
                 if protected_branch_by_rule.get('name') in protected_branches_result.keys():
