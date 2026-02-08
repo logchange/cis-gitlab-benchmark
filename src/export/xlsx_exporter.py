@@ -14,7 +14,7 @@ def _add_info_header(ws):
     info_text = (
         "This file was generated using: https://github.com/logchange/cis-gitlab-benchmark\n"
         "Check out CIS GitLab Benchmark implementation advices\n"
-        "here: https://github.com/logchange/cis-gitlab-benchmark/blob/main/cis_gitlab_benchmark_v1_0_1_implmentation.md\n"
+        "here: https://github.com/logchange/cis-gitlab-benchmark/blob/main/cis_gitlab_benchmark_v1_0_1_implentation.md\n"
         "Visit https://github.com/logchange/cis-gitlab-benchmark and leave a star 🌟\n"
         "This file is the result of CIS-Controls assessment\n"
         "CIS GitLab Benchmark v1.0.1 - 04-19-2024"

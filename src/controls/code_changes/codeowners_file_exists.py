@@ -16,4 +16,4 @@ class CodeOwnersFileExistsControl(Control):
         if file_exists(gl_project, 'CODEOWNERS'):
             return ControlResult(self.get_name(), True, "")
         else:
-            return ControlResult(self.get_name(), False, "CODEOWNERS file does not exists")
+            return ControlResult(self.get_name(), False, "CODEOWNERS file does not exist")

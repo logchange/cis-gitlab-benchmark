@@ -16,4 +16,4 @@ class SecurityFileExistsControl(Control):
         if file_exists(gl_project, 'SECURITY.md'):
             return ControlResult(self.get_name(), True, "")
         else:
-            return ControlResult(self.get_name(), False, "SECURITY.md file does not exists")
+            return ControlResult(self.get_name(), False, "SECURITY.md file does not exist")
